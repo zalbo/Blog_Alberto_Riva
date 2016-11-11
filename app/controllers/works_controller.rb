@@ -1,6 +1,7 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
+
   # GET /works
   # GET /works.json
   def index
@@ -59,6 +60,26 @@ class WorksController < ApplicationController
       format.html { redirect_to works_url, notice: 'Work was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def send_email
+    Pony.mail({
+  :from => params[:email],
+      :to => 'sbabbari@gmail.com',
+      :subject => params[:name] + " " + params[:email] + " " + " ti ha mandato un messaggio",
+      :body => params[:message] ,
+      :via => :smtp,
+      :via_options => {
+       :address              => 'smtp.gmail.com',
+       :port                 => '587',
+       :enable_starttls_auto => true,
+       :user_name            => ENV['email_gmail'],
+       :password             => ENV['password_gmail'],
+       :authentication       => :plain,
+       }
+      })
+      flash[:notice] = "Messaggio invitato"
+    render :index
   end
 
   private

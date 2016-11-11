@@ -18,7 +18,7 @@
 
   <!-- Wrapper -->
   <div id="wrapper">
-    <% if params['allert'] %>
+    <% if flash[:notice]  %>
     <div id="message_box">
       <script>
       function enter(){
@@ -28,7 +28,7 @@
       }
       enter();
       </script>
-      <h3 id="vertical"> <%= params['allert'] %> </h3>
+      <h3 id="vertical"> <%= flash[:notice] %> </h3>
     </div>
     <% end %>
 
@@ -201,7 +201,7 @@
       <div class="inner">
         <section>
           <h2>Get in touch</h2>
-          <form method="post" action="mail">
+          <form method="post" action="send_email">
             <div class="field half first">
               <input type="text" name="name" id="name" placeholder="Nome" />
             </div>
