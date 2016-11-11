@@ -3364,7 +3364,6 @@ body.is-menu-visible #menu .close {
 
 #wrapper > * > .inner {
 	width: 100%;
-	max-width: 68em;
 	margin: 0 auto;
 	padding: 0 2.5em;
 }
@@ -3390,25 +3389,21 @@ body.is-menu-visible #menu .close {
 	height: 34px;
 }
 
-h1.bio {
-	margin: 0px;
-}
-
 
 img#logo {
-    height: 85px;
+	height: 85px;
 }
 
 span.title {
-    font-size: xx-large;
-    font-weight: lighter;
-    margin-left: 11px;
+	font-size: xx-large;
+	font-weight: lighter;
+	margin-left: 11px;
 }
 
 @media screen and (max-width: 480px) {
 
-img#logo {
-    height: 180px;
-}
+	img#logo {
+		height: 180px;
+	}
 
 }
