@@ -8,6 +8,11 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
+  def pannel_control
+    @works = Work.all
+    render :pannel_control
+  end
+
   # GET /works/1
   # GET /works/1.json
   def show
@@ -26,15 +31,12 @@ class WorksController < ApplicationController
   # POST /works.json
   def create
     @work = Work.new(work_params)
-
-    respond_to do |format|
-      if @work.save
-        format.html { redirect_to @work, notice: 'Work was successfully created.' }
-        format.json { render :show, status: :created, location: @work }
-      else
-        format.html { render :new }
-        format.json { render json: @work.errors, status: :unprocessable_entity }
-      end
+    if @work.save
+      flash[:notice] = "Progetto Caricato"
+    render :index
+    else
+      flash[:notice] = "Errore Progetto non caricato"
+    render :index
     end
   end
 
@@ -90,6 +92,6 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.fetch(:work, {})
+      params.require(:work).permit(:title , :description)
     end
 end
