@@ -33,6 +33,7 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     if @work.save
       flash[:notice] = "Progetto Caricato"
+    @works = Work.all
     render :index
     else
       flash[:notice] = "Errore Progetto non caricato"
@@ -59,8 +60,9 @@ class WorksController < ApplicationController
   def destroy
     @work.destroy
     respond_to do |format|
-      format.html { redirect_to works_url, notice: 'Work was successfully destroyed.' }
+      format.html { render :pannel_control, notice: 'Work was successfully destroyed.' }
       format.json { head :no_content }
+      @works = Work.all
     end
   end
 
