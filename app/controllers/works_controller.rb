@@ -32,9 +32,15 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
+        if params[:images]
+          params[:images].each { |image|
+        @work.images.create(image: image)
+      }
+    end
+
       flash[:notice] = "Progetto Caricato"
-    @works = Work.all
-    render :index
+      @works = Work.all
+      render :index
     else
       flash[:notice] = "Errore Progetto non caricato"
     render :index
