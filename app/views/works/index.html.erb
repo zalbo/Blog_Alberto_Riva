@@ -1,18 +1,10 @@
 <div id="main">
   <div class="inner">
     <section class="tiles">
-      <article class="style1">
-        <span class="image">
-          <img src="images/pic01.jpg" alt="" />
-        </span>
-        <a href="generic.html">
-          <h2>Magna</h2>
-        </a>
-      </article>
       <% @works.each do |work|%>
       <article class="style1">
         <span class="image">
-          <img src="images/pic01.jpg" alt="" />
+          <img src="<%= work.images[0].image.url(:thumb) %>" alt="" />
         </span>
         <a href="generic.html">
           <h2><%= work.title %></h2>

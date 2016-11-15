@@ -1,13 +1,9 @@
 class Image < ActiveRecord::Base
   belongs_to :work
 
-  has_attached_file :image,
-  :path => ":rails_root/public/images/:id/:filename",
-  :url  => "/images/:id/:filename",
-  :styles => {
-      :thumb => "100x100#",
-      :small  => "150x150>",
-      :medium => "200x200" }
 
-do_not_validate_attachment_file_type :image
+  has_attached_file :image , styles: { medium: "687x460>", thumb: "350x350#" }, default_url: "/images/:style/missing.png"
+
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
 end
