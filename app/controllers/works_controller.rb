@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:show, :edit, :update, :destroy]
-  before_action :login , only: [:index, :new, :pannel_control, :edit, :create, :update, :destroy]
+
 
 
   # GET /works
@@ -14,19 +14,7 @@ class WorksController < ApplicationController
     render :pannel_control
   end
 
-  def login_page
-    binding.pry
-  end
 
-  def auth
-    @works = Work.all
-    if params[:email] == ENV['admin'] && params[':password'] == ENV['password_admin']
-      session[:login] = true
-    else
-      session[:login] = false
-    end
-    redirect_to "/"
-  end
   # GET /works/1
   # GET /works/1.json
   def show
@@ -34,7 +22,6 @@ class WorksController < ApplicationController
 
   # GET /works/new
   def new
-    binding.prys
     @work = Work.new
   end
 
@@ -52,7 +39,6 @@ class WorksController < ApplicationController
         @work.images.create(image: image)
       }
     end
-
       flash[:notice] = "Progetto Caricato"
       @works = Work.all
       render :index
@@ -118,7 +104,4 @@ class WorksController < ApplicationController
       params.require(:work).permit(:title , :description)
     end
 
-    def login
-      binding.pry
-    end
 end

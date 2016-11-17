@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :works
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,8 +13,7 @@ Rails.application.routes.draw do
   resources 'works'
   post "/send_email" => "works#send_email"
   get  "/pannel_control" => "works#pannel_control"
-  get  "/login_page" => "works#login_page"
-  post  "/auth" => "works#auth"
+
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
