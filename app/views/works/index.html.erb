@@ -4,7 +4,11 @@
       <% @works.each do |work|%>
       <article class="style1">
         <span class="image">
-          <img src="<%= work.images[0].image.url(:thumb) %>" alt="" />
+          <% @images_cover.each do |image|%>
+            <%if work.id == image.work_id && image.cover == "true" %>
+              <img src="<%=  image.image.url(:thumb) %>" alt="" />
+            <%end %>
+          <%end %>
 
         </span>
         <a>

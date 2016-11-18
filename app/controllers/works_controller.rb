@@ -6,7 +6,13 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
+    @images_cover = []
     @works = Work.all
+    Image.all.each do |image|
+      if image.cover
+       @images_cover << image
+      end
+    end
   end
 
   def pannel_control
