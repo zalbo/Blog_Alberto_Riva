@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', works_path %>
+
+<div id="main">
+  <div class="inner show">
+    <h1 class="title_show"><center><%=@work.title%></center></h1>
+    <hr>
+    <p class="description"> <%= @work.description %> </p>
+    <hr>
+    <div class="gallery"  align="center">
+      <div class="variable-width">
+        <% @work.images.each do |image| %>
+        <div><img  src="<%= image.image.url(:medium) %>" alt="<%= image.image_file_name%>" ></div>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+
+$('.variable-width').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  centerMode: true,
+  variableWidth: true
+});
+
+</script>

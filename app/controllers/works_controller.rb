@@ -15,12 +15,6 @@ class WorksController < ApplicationController
     end
   end
 
-  def pannel_control
-    @works = Work.all
-    render :pannel_control
-  end
-
-
   # GET /works/1
   # GET /works/1.json
   def show

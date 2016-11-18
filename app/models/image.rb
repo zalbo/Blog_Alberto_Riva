@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   belongs_to :work
 
 
-  has_attached_file :image , styles: { medium: "687x460>", thumb: "350x350#" }, default_url: "/images/:style/missing.png"
+  has_attached_file :image , styles: { medium: "x660>", thumb: "350x350#" }, default_url: "/images/:style/missing.png"
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
