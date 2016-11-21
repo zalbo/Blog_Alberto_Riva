@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'Bariol';
+  src:url('/assets/Bariol.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src:url('/assets/Montserrat-Bold.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+/*header*/
+
+.rectangle {
+ width: 100%;
+ height: 223px;
+ background-color: #0b3640;
+}
+
+.logo {
+	width: 39.7px;
+	height: 49.9px;
+  top: 80px;
+  left: 136px;
+position: relative;
+}
+
+.button_contact_me {
+  position: absolute;
+  top: 84px;
+  right: 136px;
+  width: 140px;
+  height: 40px;
+  background: #ff3f06;
+  border-radius: 61px;
+  cursor: pointer;
+}
+
+.contact_me {
+  font-family: Bariol;
+	font-size: 15px;
+	font-weight: bold;
+	font-style: normal;
+	font-stretch: normal;
+	letter-spacing: 1.9px;
+	color: #ffffff;
+  text-transform: none;
+  margin: 0;
+  position: relative;
+  top: 9px;
+}
+/*END header*/
+
+/*Main*/
+
+.sono-alberto-e-faccio{
+top: 99px;
+position: relative;
+font-family: Montserrat-Bold;
+font-size: 37px;
+font-weight: bold;
+font-style: normal;
+font-stretch: normal;
+line-height: 32px;
+letter-spacing: 0.4px;
+color: #0b3640;
+left: 136px;
+width: 610px
+}
+
+.bio{
+  font-family: Bariol;
+font-size: 18px;
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: 1.44;
+letter-spacing: 1.3px;
+color: #394e53;
+width: 70%;
+text-transform: none;
+position: relative;
+left: 136px;
+top: 87px;
+}
+
+/*index*/
+  .image{
+    width: 310px !important;
+  }
+
+  .style1 {
+    width: 310px !important;
+ }
+/*end index */
+
+/*END Main*/
+
+ /*tablet*/
+@media screen and (max-width: 798px) {
+  .sono-alberto-e-faccio{
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  left: inherit;
+  font-weight: 500;
+  text-align: center;
+}
+}
+
+
+@media screen and (max-width: 643px) {
+
+  /* header mobile*/
+
+  .logo{
+    width: 80%;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    top: 43px !important;
+    left: inherit;
+  }
+
+  .img_logo{
+    width: 100%;
+  }
+
+
+  .button_contact_me {
+    height: 16%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 15%;
+    width: 40%;
+    top: inherit;
+    right: inherit;
+    left: inherit;
+    position: relative;
+  }
+
+  .bio{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: auto;
+    left: inherit;
+  }
+
+
+}
+
+
+
+  /* END header mobile*/
+}
