@@ -1,20 +1,11 @@
 <div id="main">
-  <div class="inner">
-    <section class="tiles">
-      <% @works.each do |work|%>
-      <article class="style1">
-        <span class="image">
-          <% @images_cover.each do |image|%>
-            <%if work.id == image.work_id && image.cover == "true" %>
-              <img src="<%=  image.image.url(:thumb) %>" alt="" />
-            <%end %>
-          <%end %>
-        </span>
-        <a href="works/<%= work.id%>">
-          <h2 class="work_title"><%= work.title %></h2>
-        </a>
-      </article>
-      <% end%>
-    </section>
-  </div>
+  <h1 class="sono-alberto-e-faccio" >Sono Alberto e <font color="#ff430c">costruisco cose.</font> </h1>
+  <h3 class="bio">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis </h3>
+  <% @works.each do |work|%>
+    <% @images_cover.each do |image|%>
+      <%if work.id == image.work_id && image.cover == "true" %>
+        <a class="work" href="works/<%= work.id%>"><img  class="square " src="<%=  image.image.url(:thumb) %>"/></a>
+      <%end %>
+    <%end %>
+  <%end %>
 </div>
