@@ -20,7 +20,7 @@
   <div id="wrapper">
 
     <!-- Div for allert message -->
-
+    <% binding.pry%>
     <% if flash[:notice]  %>
     <div id="message_box">
       <script>
@@ -44,7 +44,7 @@
           <img class="img_logo" src="/images/logo_alberto_riva.svg" alt="Logo" >
         </a>
 
-        <a class="button_contact_me button" >
+        <a href="#contact" class="button_contact_me button" >
           <h4 class="contact_me">Contact me</h4>
         </a>
       </div>
@@ -62,7 +62,7 @@
     <!-- Footer -->
     <footer id="footer">
       <div class="inner">
-        <section>
+        <section id="contact">
           <h1 class="footer">Contact me</h1>
           <form method="post" action="send_email">
             <div class="field half first">

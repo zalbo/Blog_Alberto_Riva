@@ -90,7 +90,7 @@ class WorksController < ApplicationController
        }
       })
       flash[:notice] = "Messaggio invitato"
-    render :index
+    redirect_to "/"
   end
 
   private
