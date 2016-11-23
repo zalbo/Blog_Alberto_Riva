@@ -99,20 +99,54 @@
 
 /*index*/
 
-.square{
-  width: 84%;
-  margin-right: 8%;
-  margin-left: 8%;
-  float:left;
-  position: relative;
-  width: 30%;
-  margin:1.66%;
-  background-position:center center;
-  background-repeat:no-repeat;
-  background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
 }
 
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
+
 /*end index */
+
+/*footer */
+
+img.icon_social {
+    height: 30px;
+    position: relative;
+    top: 2.5px;
+}
+
+h1.footer {
+    width: auto;
+}
+
+/*end footer */
 
 /*tablet*/
 
@@ -180,10 +214,18 @@
     margin-left: 0%;
     margin-right: 0%;
   }
-  .square{
-    width: 90% !important;
-  margin-left: 5% !important;
-  margin-right: 5% !important;
-  margin-bottom: 4% !important;
-  }
+}
+
+
+/*BLUR*/
+.blur img {
+  -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+       -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+
+.blur img:hover {
+  -webkit-filter: blur(2px);
 }
