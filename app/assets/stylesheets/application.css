@@ -13,8 +13,6 @@
  *= require_tree .
  *= require_self
  *= silvia_theme
- *= require slick
- *= require slick-theme
  *= responsive_grid
  *= styles
 

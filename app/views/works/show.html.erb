@@ -1,31 +1,18 @@
-
-
 <div id="main">
-  <div class="inner show">
-    <h1 class="title_show"><center><%=@work.title%></center></h1>
-    <hr>
-    <p class="description"> <%= @work.description %> </p>
-    <hr>
-    <div class="gallery"  align="center">
-      <div class="variable-width">
-        <% @work.images.each do |image| %>
-        <div><img  src="<%= image.image.url(:medium) %>" alt="<%= image.image_file_name%>" ></div>
-        <%end %>
-      </div>
-    </div>
+  <h1 class="sono-alberto-e-faccio" ><%=@work.title %></h1>
+  <h3 class="bio"><%=@work.description %></h3>
+
+
+
+  <div id="thumbnails">
+    <ul id="rig"  class="clearfix">
+      <% @work.images.each do |image|%>
+        <li>
+          <a class="rig-cell" href="<%= image.image.url(:medium) %>" data-lightbox="<%= image.image_file_name %>" data-title="My caption">
+            <img  class="rig-img" src="<%= image.image.url(:thumb) %>"/>
+          </a>
+        </li>
+      <%end %>
+    </ul>
   </div>
 </div>
-
-<script>
-
-
-$('.variable-width').slick({
-  dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  centerMode: true,
-  variableWidth: true
-});
-
-</script>

@@ -29,7 +29,7 @@ gem 'pony' #form email
 gem 'dotenv-rails', :groups => [:development, :test] #env
 gem "paperclip", "~> 5.0.0" #upload image
 gem 'rails_admin', '~> 1.0'
-gem "jquery-slick-rails" #carusel
+gem 'lightbox-bootstrap-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
