@@ -1,18 +1,14 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:show, :edit, :update, :destroy]
+  before_action :set_works, only: [:index, :send_email]
+  before_action :set_imagescover, only: [:index, :send_email]
 
 
 
   # GET /works
   # GET /works.json
   def index
-    @images_cover = []
-    @works = Work.all
-    Image.all.each do |image|
-      if image.cover
-       @images_cover << image
-      end
-    end
+
   end
 
   # GET /works/1
@@ -39,11 +35,9 @@ class WorksController < ApplicationController
         @work.images.create(image: image)
       }
     end
-      flash[:notice] = "Progetto Caricato"
       @works = Work.all
       render :index
     else
-      flash[:notice] = "Errore Progetto non caricato"
     render :index
     end
   end
@@ -89,14 +83,28 @@ class WorksController < ApplicationController
        :authentication       => :plain,
        }
       })
-      flash[:notice] = "Messaggio invitato"
-    redirect_to "/"
+    flash[:notice] = "Messaggio invitato"
+    @works = Work.all
+    render :index
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_work
       @work = Work.find(params[:id])
+    end
+
+    def set_works
+      @works = Work.all
+    end
+
+    def set_imagescover
+      @images_cover = []
+      Image.all.each do |image|
+        if image.cover
+         @images_cover << image
+        end
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
