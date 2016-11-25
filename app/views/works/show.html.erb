@@ -8,10 +8,27 @@
     <ul id="rig"  class="clearfix">
       <% @work.images.each do |image|%>
         <li>
-          <a class="rig-cell" href="<%= image.image.url(:medium) %>" data-lightbox="<%= image.image_file_name %>" data-title="My caption">
-            <img  class="rig-img" src="<%= image.image.url(:thumb) %>"/>
-          </a>
+          <img  class="rig-img thumbnail<%=image.id%>" src="<%= image.image.url(:thumb) %>"/>
         </li>
+        <div class="overlay_photo" id="id_overlay<%=image.id%>" style="display:none">
+        </div>
+        <img class="photo_open" id="id_image<%=image.id%>" style="display:none" src="<%= image.image.url(:medium) %>"/>
+      <script>
+          $(document).ready(function() {
+              $('.thumbnail<%=image.id%>').click(function() {
+                  document.getElementById("id_image<%=image.id%>").style.display = "block";
+              });
+              $('.thumbnail<%=image.id%>').click(function() {
+                  document.getElementById("id_overlay<%=image.id%>").style.display = "block";
+              });
+              $('.overlay_photo').click(function() {
+                  document.getElementById("id_image<%=image.id%>").style.display = "none";
+              });
+              $('.overlay_photo').click(function() {
+                  document.getElementById("id_overlay<%=image.id%>").style.display = "none";
+              });
+          });
+      </script>
       <%end %>
     </ul>
   </div>
