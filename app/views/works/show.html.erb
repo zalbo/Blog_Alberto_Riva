@@ -12,7 +12,9 @@
         </li>
         <div class="overlay_photo" id="id_overlay<%=image.id%>" style="display:none">
         </div>
-        <img class="photo_open" id="id_image<%=image.id%>" style="display:none" src="<%= image.image.url(:medium) %>"/>
+
+          <img   class="photo_open" id="id_image<%=image.id%>" style="display:none" src="<%= image.image.url(:medium) %>"/>
+
       <script>
           $(document).ready(function() {
               $('.thumbnail<%=image.id%>').click(function() {
