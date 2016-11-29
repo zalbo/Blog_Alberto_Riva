@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources 'works'
   post "/send_email" => "works#send_email"
-  get "/send_email" => "works#index" 
+  get "/send_email" => "works#index"
 
 
 
