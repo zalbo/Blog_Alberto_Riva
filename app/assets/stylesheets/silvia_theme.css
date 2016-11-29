@@ -28,10 +28,10 @@ div#message_box {
 }
 
 h3#vertical {
-    font-family: Montserrat-Bold;
-    text-transform: capitalize;
-    font-size: large;
-    margin: 0px;
+  font-family: Montserrat-Bold;
+  text-transform: capitalize;
+  font-size: large;
+  margin: 0px;
 }
 
 #main{
@@ -53,7 +53,6 @@ h3#vertical {
   top: 85px;
   left: 11%;
   position: relative;
-
 }
 
 .button_contact_me {
@@ -83,8 +82,6 @@ h3#vertical {
 /*END header*/
 
 /*Main*/
-
-
 
 .sono-alberto-e-faccio{
   position: relative;
@@ -158,13 +155,13 @@ h3#vertical {
 /*footer */
 
 img.icon_social {
-    height: 30px;
-    position: relative;
-    top: 2.5px;
+  height: 30px;
+  position: relative;
+  top: 2.5px;
 }
 
 h1.footer {
-    width: auto;
+  width: auto;
 }
 
 /*end footer */
@@ -189,7 +186,6 @@ h1.footer {
 
 
 @media screen and (max-width: 643px) {
-
 
   .logo{
     width: 80%;
@@ -227,7 +223,6 @@ h1.footer {
 @media screen and (max-width: 425px) {
   #main{
     padding-top: 47px;
-
   }
 
   .sono-alberto-e-faccio{

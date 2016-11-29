@@ -8,28 +8,33 @@
     <ul id="rig"  class="clearfix">
       <% @work.images.each do |image|%>
         <li>
-          <img  class="rig-img thumbnail<%=image.id%>" src="<%= image.image.url(:thumb) %>"/>
+          <img class="rig-img thumbnail<%=image.id%> animation_thumb" src="<%= image.image.url(:thumb) %>"/>
         </li>
-        <div class="overlay_photo" id="id_overlay<%=image.id%>" style="display:none">
-        </div>
-
-          <img   class="photo_open" id="id_image<%=image.id%>" style="display:none" src="<%= image.image.url(:medium) %>"/>
+        <div class="overlay_photo" id="id_overlay<%=image.id%>" style="z-index: -1;"></div>
+        <img class="photo_open" id="id_image<%=image.id%>" style="z-index: -1;" src="<%= image.image.url(:medium) %>"/>
 
       <script>
-          $(document).ready(function() {
-              $('.thumbnail<%=image.id%>').click(function() {
-                  document.getElementById("id_image<%=image.id%>").style.display = "block";
-              });
-              $('.thumbnail<%=image.id%>').click(function() {
-                  document.getElementById("id_overlay<%=image.id%>").style.display = "block";
-              });
-              $('.overlay_photo').click(function() {
-                  document.getElementById("id_image<%=image.id%>").style.display = "none";
-              });
-              $('.overlay_photo').click(function() {
-                  document.getElementById("id_overlay<%=image.id%>").style.display = "none";
-              });
-          });
+      // fade in overlay and image
+      $('.thumbnail<%=image.id%>').on('click', function() {
+        if ($('#id_overlay<%=image.id%>').css('opacity') == 0) $('#id_overlay<%=image.id%>').css('opacity', 1).css('z-index' , 3);
+        else $('#id_overlay<%=image.id%>').css('opacity', 0);
+      });
+
+      $('.thumbnail<%=image.id%>').on('click', function() {
+        if ($('#id_image<%=image.id%>').css('opacity') == 0) $('#id_image<%=image.id%>').css('opacity', 1).css('z-index' , 3);
+        else $('#id_image<%=image.id%>').css('opacity', 0);
+      });
+
+      // fade out overlay and image
+      $('#id_overlay<%=image.id%>').on('click', function() {
+        if ($('#id_overlay<%=image.id%>').css('opacity') == 1) $('#id_overlay<%=image.id%>').css('opacity', 0).css('z-index' , -1);
+        else $('#id_overlay<%=image.id%>').css('opacity', 1);
+      });
+
+      $('#id_overlay<%=image.id%>').on('click', function() {
+        if ($('#id_image<%=image.id%>').css('opacity') == 1) $('#id_image<%=image.id%>').css('opacity', 0).css('z-index' , -1);
+        else $('#id_image<%=image.id%>').css('opacity', 1);
+      });
       </script>
       <%end %>
     </ul>

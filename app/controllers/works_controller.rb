@@ -69,20 +69,20 @@ class WorksController < ApplicationController
 
   def send_email
     Pony.mail({
-  :from => params[:email],
+      :from => params[:email],
       :to => 'sbabbari@gmail.com',
       :subject => params[:name] + " " + params[:email] + " " + " ti ha mandato un messaggio",
       :body => params[:message] ,
       :via => :smtp,
       :via_options => {
-       :address              => 'smtp.gmail.com',
-       :port                 => '587',
-       :enable_starttls_auto => true,
-       :user_name            => ENV['email_gmail'],
-       :password             => ENV['password_gmail'],
-       :authentication       => :plain,
-       }
-      })
+        :address              => 'smtp.gmail.com',
+        :port                 => '587',
+        :enable_starttls_auto => true,
+        :user_name            => ENV['email_gmail'],
+        :password             => ENV['password_gmail'],
+        :authentication       => :plain,
+      }
+    })
     flash[:notice] = "Messaggio invitato"
     @works = Work.all
     render :index
@@ -102,7 +102,7 @@ class WorksController < ApplicationController
       @images_cover = []
       Image.all.each do |image|
         if image.cover
-         @images_cover << image
+          @images_cover << image
         end
       end
     end
@@ -111,5 +111,4 @@ class WorksController < ApplicationController
     def work_params
       params.require(:work).permit(:title , :description)
     end
-
 end
