@@ -80,7 +80,7 @@ class WorksController < ApplicationController
         :enable_starttls_auto => true,
         :user_name            => ENV['email_gmail'],
         :password             => ENV['password_gmail'],
-        :authentication       => :plain,
+        :openssl_verify_mode => 'none'
       }
     })
     flash[:notice] = "Messaggio invitato"
